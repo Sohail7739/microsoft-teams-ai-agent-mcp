@@ -1,0 +1,49 @@
+{
+  "name": "teams-ai-agent-mcp",
+  "version": "1.0.0",
+  "description": "Microsoft Teams AI Agent Tab App with MCP Gateway Integration",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "nodemon server/index.js",
+    "client:dev": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "build:manifest": "node scripts/build-manifest.js",
+    "build:all": "npm run build && npm run build:manifest",
+    "deploy:prod": "node scripts/production-deploy.js",
+    "start": "node server/index.js",
+    "install:all": "npm install && cd client && npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-client": "^3.0.1",
+    "axios": "^1.6.2",
+    "@azure/keyvault-secrets": "^4.7.0",
+    "@azure/identity": "^3.5.0",
+    "@langchain/community": "^0.0.20",
+    "@langchain/core": "^0.1.0",
+    "@langchain/aws": "^0.0.1",
+    "@aws-sdk/client-bedrock-runtime": "^3.450.0",
+    "langchain": "^0.0.200",
+    "ws": "^8.14.2",
+    "uuid": "^9.0.1",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "microsoft-teams",
+    "ai-agent",
+    "mcp-gateway",
+    "aws-bedrock",
+    "azure-ad"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

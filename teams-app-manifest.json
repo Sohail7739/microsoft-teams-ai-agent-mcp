@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "{{APP_ID}}",
+  "packageName": "com.topcoder.teams-ai-agent",
+  "developer": {
+    "name": "Topcoder",
+    "websiteUrl": "https://www.topcoder.com",
+    "privacyUrl": "https://www.topcoder.com/privacy",
+    "termsOfUseUrl": "https://www.topcoder.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "AI Agent",
+    "full": "Microsoft Teams AI Agent with MCP Gateway Integration"
+  },
+  "description": {
+    "short": "AI-powered assistant with tool integration",
+    "full": "An intelligent AI agent that can help you with various tasks using AWS Bedrock and MCP Gateway tools. Features SSO authentication, streaming responses, and tool execution capabilities."
+  },
+  "accentColor": "#0078D4",
+  "bots": [],
+  "composeExtensions": [],
+  "configurableTabs": [
+    {
+      "configurationUrl": "{{BASE_URL}}/config",
+      "canUpdateConfiguration": true,
+      "scopes": [
+        "team",
+        "groupchat"
+      ],
+      "context": [
+        "channelTab",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab",
+        "meetingSidePanel",
+        "meetingStage"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "ai-agent-tab",
+      "name": "AI Agent",
+      "contentUrl": "{{BASE_URL}}/tab",
+      "websiteUrl": "{{BASE_URL}}/tab",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "{{BASE_URL_DOMAIN}}"
+  ],
+  "webApplicationInfo": {
+    "id": "{{APP_ID}}",
+    "resource": "https://graph.microsoft.com"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "ChannelMessage.Read.Group",
+          "type": "Application"
+        },
+        {
+          "name": "ChannelMessage.Send.Group",
+          "type": "Application"
+        }
+      ]
+    }
+  },
+  "devicePermissions": [
+    "media",
+    "geolocation"
+  ],
+  "showLoadingIndicator": true,
+  "isFullScreen": true,
+  "supportsStreaming": true,
+  "localizationInfo": {
+    "defaultLanguageTag": "en",
+    "additionalLanguages": [
+      {
+        "languageTag": "en-US",
+        "file": "en-US.json"
+      }
+    ]
+  }
+}
